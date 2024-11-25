@@ -1,0 +1,39 @@
+.TextField {
+  --text-field-padding: 18px;
+  --text-field-height: 52px;
+  --text-field-label-y-position: calc(var(--text-field-height) / 3);
+
+  font-size: 12px;
+  position: relative;
+  height: var(--text-field-height);
+  width: 364px;
+  margin-bottom: var(--text-field-padding);
+
+  label {
+    color: hsla(0, 0%, 47%, 1);
+    position: absolute;
+    left: var(--text-field-padding);
+    top: var(--text-field-label-y-position);
+    z-index: 1;
+    transition: all 0.15s ease-in;
+  }
+
+  input {
+    display: block;
+    position: absolute;
+    width: calc(100% - 2 * var(--text-field-padding));
+    left: 0;
+    top: 0;
+    background: hsla(248, 100%, 97%, 0.8);
+    border: none;
+    padding: var(--text-field-padding);
+    border-radius: var(--border-radius);
+
+    &:focus-within + label,
+    &:not(:placeholder-shown) + label {
+      transform: translateY(calc(var(--text-field-label-y-position) * -1))
+        scale(0.9);
+      transform-origin: left;
+    }
+  }
+}
