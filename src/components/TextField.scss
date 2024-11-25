@@ -6,7 +6,7 @@
   font-size: 12px;
   position: relative;
   height: var(--text-field-height);
-  width: 364px;
+  width: 100%;
   margin-bottom: var(--text-field-padding);
 
   label {
@@ -29,12 +29,29 @@
     padding: var(--text-field-padding);
     border-radius: var(--border-radius);
     outline-color: var(--primary-color);
+    outline-style: none;
+    font-size: 14px;
+
+    &::placeholder {
+      color: transparent;
+    }
 
     &:focus-within + label,
     &:not(:placeholder-shown) + label {
       transform: translateY(calc(var(--text-field-label-y-position) * -1))
         scale(0.9);
       transform-origin: left;
+    }
+
+    &:focus-visible {
+      outline-width: 2px;
+      outline-style: solid;
+    }
+
+    &:disabled {
+      filter: grayscale(1);
+      opacity: 0.67;
+      cursor: not-allowed;
     }
   }
 

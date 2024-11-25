@@ -1,12 +1,12 @@
 import { PropsWithChildren } from 'react';
-import './Checkbox.css';
+import './Checkbox.scss';
 import React from 'react';
 
 export interface CheckboxProps {
-  id: string;
+  name: string;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
   onBlur: React.FocusEventHandler<HTMLInputElement>;
-  value?: boolean;
+  value?: 'on' | 'off';
   disabled?: boolean;
 }
 
@@ -14,15 +14,16 @@ const Checkbox = React.forwardRef<
   HTMLInputElement,
   PropsWithChildren<CheckboxProps>
 >(function Checkbox(props, ref) {
-  const { id, value, onChange, onBlur, children } = props;
+  const { name, onChange, value, onBlur, children } = props;
 
   return (
     <label className="Checkbox">
       <input
-        id={id}
+        id={name}
+        name={name}
         type="checkbox"
-        checked={value}
         ref={ref}
+        value={value}
         onChange={onChange}
         onBlur={onBlur}
       />

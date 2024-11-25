@@ -23,13 +23,15 @@
     border: 2px solid var(--checkbox-text-color);
     transition: all 0.125s ease-in-out;
     box-sizing: border-box;
+    overflow: hidden;
 
     &:focus {
       outline-color: var(--primary-color);
+      outline-style: solid;
       border-color: var(--checkbox-fill-color);
     }
 
-    &:active {
+    &:active:not(:disabled) {
       transform: scale(1.1);
     }
 

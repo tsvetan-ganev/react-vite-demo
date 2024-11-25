@@ -16,8 +16,7 @@ export default function passwordValidator(
   for (const symbol of candidatePassword) {
     if (/[0-9]/.test(symbol)) {
       hasDigit = true;
-    }
-    if (/[a-zA-Z]/.test(symbol)) {
+    } else if (/[a-zA-Z]/.test(symbol)) {
       hasLetter = true;
     }
 

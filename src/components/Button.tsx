@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, PropsWithChildren } from 'react';
-import './Button.css';
+import './Button.scss';
 
 export default function Button(
   props: PropsWithChildren<ButtonHTMLAttributes<unknown>>

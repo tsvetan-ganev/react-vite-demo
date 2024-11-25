@@ -1,5 +1,5 @@
 import React from 'react';
-import './TextField.css';
+import './TextField.scss';
 import { FieldError } from 'react-hook-form';
 
 export interface TextFieldProps {
@@ -31,7 +31,7 @@ const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
           onChange={onChange}
           onBlur={onBlur}
           ref={ref}
-          placeholder=""
+          placeholder={label}
         />
         <label htmlFor={name}>{label}</label>
         {hasError && (
