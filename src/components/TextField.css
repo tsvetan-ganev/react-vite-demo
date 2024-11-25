@@ -28,6 +28,7 @@
     border: none;
     padding: var(--text-field-padding);
     border-radius: var(--border-radius);
+    outline-color: var(--primary-color);
 
     &:focus-within + label,
     &:not(:placeholder-shown) + label {
@@ -35,5 +36,24 @@
         scale(0.9);
       transform-origin: left;
     }
+  }
+
+  &.error {
+    input {
+      outline-color: var(--error-color);
+    }
+  }
+
+  .error-message {
+    position: absolute;
+    z-index: 2;
+    bottom: 1px;
+    font-size: 0.75rem;
+    right: 0;
+    color: var(--error-color);
+    background-color: var(--error-background-color);
+    border-bottom-right-radius: var(--border-radius);
+    padding: 1px 6px;
+    border: 1px solid var(--error-color);
   }
 }

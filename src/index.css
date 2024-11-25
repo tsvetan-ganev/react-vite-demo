@@ -1,15 +1,17 @@
 :root {
+  /* CSS variables */
+  --text-color: hsla(0, 0%, 100%, 1);
+  --primary-color: hsl(248, 84%, 73%);
+  --secondary-color: hsl(248, 83%, 57%);
+  --error-color: hsl(0, 85%, 42%);
+  --error-background-color: hsl(0, 73%, 96%);
+  --border-radius: 16px;
+
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  /* variables */
-  --text-color: hsla(0, 0%, 100%, 1);
-  --primary-color: hsl(248, 84%, 73%);
-  --secondary-color: hsl(248, 83%, 57%);
-  --border-radius: 16px;
 
   background: linear-gradient(
     217.64deg,
