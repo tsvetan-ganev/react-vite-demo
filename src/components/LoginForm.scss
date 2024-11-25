@@ -9,46 +9,44 @@
     margin-bottom: 54px;
   }
 
-  form {
-    padding: 22px 0;
+  padding: 22px 0;
 
-    .Button {
-      align-self: center;
-      margin-top: 50px;
-    }
+  .Button {
+    align-self: center;
+    margin-top: 50px;
+  }
 
-    fieldset {
-      border: none;
-      outline: none;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      margin: 0;
-      padding-inline: 0;
-      padding-block: 0;
-      padding: 0 22px;
+  fieldset {
+    border: none;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+    padding-inline: 0;
+    padding-block: 0;
+    padding: 0 22px;
 
-      > [role='alert'] {
-        width: 100%;
-        margin-top: 32px;
-        text-align: left;
-        background-color: var(--error-background-color);
-        color: var(--error-color);
-        padding: 1rem;
-        box-sizing: border-box;
-        border-left: 8px solid;
+    > [role='alert'] {
+      width: 100%;
+      margin-top: 32px;
+      text-align: left;
+      background-color: var(--error-background-color);
+      color: var(--error-color);
+      padding: 1rem;
+      box-sizing: border-box;
+      border-left: 8px solid;
 
-        &::before {
-          content: '⚠️';
-          display: inline-block;
-          margin-right: 1ch;
-        }
+      &::before {
+        content: '⚠️';
+        display: inline-block;
+        margin-right: 1ch;
       }
     }
+  }
 
-    legend {
-      margin: 0;
-      padding: 0;
-    }
+  legend {
+    margin: 0;
+    padding: 0;
   }
 }

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { getByRole, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import App from './App';
@@ -28,7 +28,7 @@ describe('App', () => {
     await userEvent.click(rememberMeCheckbox);
     await userEvent.click(submitButton);
 
-    const h1 = screen.getByRole('heading');
+    const h1 = screen.getByRole('heading', { level: 1 });
     const logoutButton = screen.getByRole('button', {
       name: 'Logout',
     });
@@ -49,11 +49,51 @@ describe('App', () => {
     const submitButton = screen.getByRole('button');
 
     // try login
-    await userEvent.type(usernameInupt, 'john.doe');
+    await userEvent.type(usernameInupt, 'john.doe@example.com');
     await userEvent.type(passwordInput, 'mypassword123');
     await userEvent.click(submitButton);
 
     // verify there's an error displayed
     expect(screen.getByRole('alert')).toHaveTextContent(/Invalid credentials/i);
+  });
+
+  it('should display username field errors', async () => {
+    render(<App />);
+
+    const usernameInupt: HTMLInputElement = screen.getByLabelText('Username');
+    const submitButton = screen.getByRole('button');
+
+    // Invalid email
+    await userEvent.type(usernameInupt, 'not-an-email');
+    await userEvent.click(submitButton);
+    expect(getByRole(usernameInupt.parentElement!, 'alert')).toHaveTextContent(
+      /Enter a valid email address/i
+    );
+
+    // Required
+    await userEvent.clear(usernameInupt);
+    expect(getByRole(usernameInupt.parentElement!, 'alert')).toHaveTextContent(
+      /Enter an email address/i
+    );
+  });
+
+  it('should display password field errors', async () => {
+    render(<App />);
+
+    const passwordInput: HTMLInputElement = screen.getByLabelText('Password');
+    const submitButton = screen.getByRole('button');
+
+    // Invalid password
+    await userEvent.type(passwordInput, 'invalidpass');
+    await userEvent.click(submitButton);
+    expect(getByRole(passwordInput.parentElement!, 'alert')).toHaveTextContent(
+      /must contain/i
+    );
+
+    // Required
+    await userEvent.clear(passwordInput);
+    expect(getByRole(passwordInput.parentElement!, 'alert')).toHaveTextContent(
+      /Enter a password/i
+    );
   });
 });

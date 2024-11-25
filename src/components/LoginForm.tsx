@@ -10,11 +10,11 @@ import Card from './Card';
 import Checkbox from './Checkbox';
 import TextField from './TextField';
 import { UserSession } from '../types';
+import LoadingIndicator from './LoadingIndicator';
 
 export interface LoginFormProps {
   authService: AuthService;
   onLoggedIn: (session: UserSession & { rememberMe: boolean }) => void;
-
   lastUsernameUsed: string | null;
 }
 
@@ -108,6 +108,9 @@ export default function LoginForm(props: LoginFormProps) {
           {!isLoading ? 'Login Now' : 'Loading...'}
         </Button>
       </form>
+      {isLoading && (
+        <LoadingIndicator style={{ bottom: 0, position: 'absolute' }} />
+      )}
     </Card>
   );
 }

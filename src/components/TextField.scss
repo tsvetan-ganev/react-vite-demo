@@ -3,7 +3,6 @@
   --text-field-height: 52px;
   --text-field-label-y-position: calc(var(--text-field-height) / 3);
 
-  font-size: 12px;
   position: relative;
   height: var(--text-field-height);
   width: 100%;
@@ -16,6 +15,7 @@
     top: var(--text-field-label-y-position);
     z-index: 1;
     transition: all 0.15s ease-in;
+    font-size: 12px;
   }
 
   input {
@@ -24,13 +24,13 @@
     width: calc(100% - 2 * var(--text-field-padding));
     left: 0;
     top: 0;
+    font-size: 14px;
     background: hsla(248, 100%, 97%, 0.8);
     border: none;
     padding: var(--text-field-padding);
     border-radius: var(--border-radius);
     outline-color: var(--primary-color);
     outline-style: none;
-    font-size: 14px;
 
     &::placeholder {
       color: transparent;
@@ -64,7 +64,7 @@
   .error-message {
     position: absolute;
     z-index: 2;
-    bottom: 1px;
+    bottom: -1px;
     font-size: 0.75rem;
     right: 0;
     color: var(--error-color);

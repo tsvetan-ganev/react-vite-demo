@@ -9,4 +9,10 @@
   padding: 45px;
   background: var(--card-background-color);
   border-radius: var(--border-radius);
+  position: relative;
+  overflow: hidden;
+
+  @media screen and (max-width: 420px) {
+    padding: 12px 8px;
+  }
 }
