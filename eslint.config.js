@@ -36,6 +36,7 @@ export default tseslint.config(
         { allowConstantExport: true },
       ],
       '@typescript-eslint/no-misused-promises': ['off'],
+      '@typescript-eslint/no-unsafe-call': 'off',
     },
   }
 );

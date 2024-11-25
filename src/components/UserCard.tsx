@@ -12,7 +12,7 @@ export default function UserCard(props: UserCardProps) {
   const { user, onLogout } = props;
   return (
     <Card>
-      <div className="logged-in">
+      <div className="UserCard">
         <h1>Hi, {user.username} 🤟!</h1>
         <Button type="button" onClick={onLogout}>
           Logout

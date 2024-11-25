@@ -1,12 +1,8 @@
 import { http, HttpResponse, PathParams, delay } from 'msw';
 import { User } from '../types';
+import { mockUsers } from './data';
 
 const DELAY_TIME_MS = 3000;
-
-const mockUsers: User[] = [
-  { username: 'hello@edited.com', password: 'hello123' },
-  { username: 'gsvetan@edited.com', password: 'hello123' },
-];
 
 const delayResponses = http.all('*', async () => {
   await delay(DELAY_TIME_MS);

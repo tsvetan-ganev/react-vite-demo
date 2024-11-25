@@ -67,7 +67,7 @@ export default function LoginForm(props: LoginFormProps) {
 
   return (
     <Card>
-      <form onSubmit={handleSubmit(onSubmit)} noValidate>
+      <form className="LoginForm" onSubmit={handleSubmit(onSubmit)} noValidate>
         <h1 className="card-title">Sign In To Your Account</h1>
         <fieldset disabled={isLoading}>
           <TextField

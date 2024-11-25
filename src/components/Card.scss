@@ -1,14 +1,12 @@
 .Card {
   --card-background-color: hsla(0, 0%, 100%, 1);
 
+  min-width: 300px;
+  min-height: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  background: var(--card-background-color);
   padding: 45px;
+  background: var(--card-background-color);
   border-radius: var(--border-radius);
-
-  min-width: 300px;
-  min-height: 300px;
 }
