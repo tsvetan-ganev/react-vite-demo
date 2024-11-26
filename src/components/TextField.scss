@@ -2,11 +2,17 @@
   --text-field-padding: 18px;
   --text-field-height: 52px;
   --text-field-label-y-position: calc(var(--text-field-height) / 3);
+  --text-field-font-size: 16px;
 
-  position: relative;
-  height: var(--text-field-height);
   width: 100%;
   margin-bottom: var(--text-field-padding);
+  font-size: var(--text-field-font-size);
+
+  .input-wrapper {
+    height: var(--text-field-height);
+    width: 100%;
+    position: relative;
+  }
 
   label {
     color: hsla(0, 0%, 47%, 1);
@@ -15,7 +21,7 @@
     top: var(--text-field-label-y-position);
     z-index: 1;
     transition: all 0.15s ease-in;
-    font-size: 12px;
+    font-size: 14px;
   }
 
   input {
@@ -24,9 +30,9 @@
     width: calc(100% - 2 * var(--text-field-padding));
     left: 0;
     top: 0;
-    font-size: 14px;
     background: hsla(248, 100%, 97%, 0.8);
     border: none;
+    font-size: var(--text-field-font-size);
     padding: var(--text-field-padding);
     border-radius: var(--border-radius);
     outline-color: var(--primary-color);
@@ -62,15 +68,14 @@
   }
 
   .error-message {
-    position: absolute;
+    margin-top: 8px;
     z-index: 2;
-    bottom: -1px;
+    bottom: 0;
     font-size: 0.75rem;
     right: 0;
     color: var(--error-color);
-    background-color: var(--error-background-color);
     border-bottom-right-radius: var(--border-radius);
-    padding: 1px 6px;
-    border: 1px solid var(--error-color);
+    text-align: left;
+    padding-left: var(--text-field-padding);
   }
 }

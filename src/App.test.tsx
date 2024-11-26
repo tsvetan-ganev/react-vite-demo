@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { getByRole, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import App from './App';
@@ -66,13 +66,14 @@ describe('App', () => {
     // Invalid email
     await userEvent.type(usernameInupt, 'not-an-email');
     await userEvent.click(submitButton);
-    expect(getByRole(usernameInupt.parentElement!, 'alert')).toHaveTextContent(
+
+    expect(document.getElementById('username-error')).toHaveTextContent(
       /Enter a valid email address/i
     );
 
     // Required
     await userEvent.clear(usernameInupt);
-    expect(getByRole(usernameInupt.parentElement!, 'alert')).toHaveTextContent(
+    expect(document.getElementById('username-error')).toHaveTextContent(
       /Enter an email address/i
     );
   });
@@ -86,13 +87,13 @@ describe('App', () => {
     // Invalid password
     await userEvent.type(passwordInput, 'invalidpass');
     await userEvent.click(submitButton);
-    expect(getByRole(passwordInput.parentElement!, 'alert')).toHaveTextContent(
+    expect(document.getElementById('password-error')).toHaveTextContent(
       /must contain/i
     );
 
     // Required
     await userEvent.clear(passwordInput);
-    expect(getByRole(passwordInput.parentElement!, 'alert')).toHaveTextContent(
+    expect(document.getElementById('password-error')).toHaveTextContent(
       /Enter a password/i
     );
   });

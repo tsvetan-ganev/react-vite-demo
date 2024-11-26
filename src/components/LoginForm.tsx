@@ -73,6 +73,7 @@ export default function LoginForm(props: LoginFormProps) {
           <TextField
             label="Username"
             type="email"
+            required
             {...register('username', {
               required: {
                 message: 'Enter an email address.',
@@ -87,6 +88,7 @@ export default function LoginForm(props: LoginFormProps) {
           <TextField
             label="Password"
             type="password"
+            required
             {...register('password', {
               required: {
                 message: 'Enter a password.',

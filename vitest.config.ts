@@ -14,7 +14,7 @@ export default defineConfig({
     setupFiles: './src/test-setup.ts',
     coverage: {
       provider: 'istanbul',
-      exclude: ['src/mocks/**', 'public/**'],
+      exclude: ['src/mocks/**', 'public/**', 'dist/**'],
     },
   },
 });
